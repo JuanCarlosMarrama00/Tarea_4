@@ -2,14 +2,23 @@ package com.company;
 import java.util.Scanner;
 public class Original {
     public static void main(String[] args) {
+        /**
+         * En esta parte lo que hacemos es pedir el numero limite del cual vamos a obtener numeros primos.
+         */
         Scanner teclado=new Scanner(System.in);
         System.out.println("Introduce el número para la criba de Erastótenes:");
         int dato=teclado.nextInt();
         int[] vector =new int[dato];
+        /**
+         * Aqui realizamos un cuadro con todos los numeros desde el 1 hasta el numero limite
+         */
         System.out.println("\nVector inicial hasta :"+dato);
         for (int i = 0; i < vector.length; i++) {
             extracted(i);
         }
+        /**
+         * Aqui llamamos al metodo donde genera los numeros primos y despues realizamos otro cuadro con todos los numeros primos desde el 2 hasta el numero limite
+         */
         vector=generarPrimos(dato);
         System.out.println("\nVector de primos hasta:"+dato);
         for (int i = 0; i < vector.length; i++) {
@@ -18,10 +27,14 @@ public class Original {
     }
 
     private static void extracted(int i) {
-        extracted1(i);
+        generadorCuadro(i);
     }
 
-    private static void extracted1(int i) {
+    /**
+     * Este metodo genera el cuadro de los numeros, lo que hace el metodo es que cuando el numero de i es multiplo de 10, se imprime el numero y despues se hace un salto de linea.
+     * @param i
+     */
+    private static void generadorCuadro(int i) {
         if (i %10==0) System.out.println();
         System.out.print(i +1+"\t");
     }
@@ -36,6 +49,12 @@ public class Original {
     }
 
     // Generar números primos de 1 a max
+
+    /**
+     * En este metodo se genera los numeros primos del 2 hasta el numero limite.
+     * @param max
+     * @return
+     */
     public static int[] generarPrimos (int max)
     {
         int i,j;
@@ -79,6 +98,11 @@ public class Original {
         return j;
     }
 
+    /**
+     * En este metodo se comprueba si los numeros son primos o no
+     * @param dim
+     * @return
+     */
     private static boolean[] esPrimo(int dim) {
         int i;
         boolean[] esPrimo = new boolean[dim];
