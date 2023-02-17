@@ -42,7 +42,7 @@ public class Original {
         if (max >= 2) {
 // Declaraciones
             int dim = max + 1; // Tamaño del array
-            boolean[] esPrimo = getBooleans(dim);
+            boolean[] esPrimo = esPrimo(dim);
 // Criba
             for (i=2; i<Math.sqrt(dim)+1; i++) {
                 if (esPrimo[i]) {
@@ -79,7 +79,7 @@ public class Original {
         return j;
     }
 
-    private static boolean[] getBooleans(int dim) {
+    private static boolean[] esPrimo(int dim) {
         int i;
         boolean[] esPrimo = new boolean[dim];
 // Inicializar el array
